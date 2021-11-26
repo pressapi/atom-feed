@@ -16,6 +16,6 @@ class RssChannelItemList implements RssTag
 
     public function __toString(): string
     {
-        return join("\n", $this->items);
+        return trim(join("\n", $this->items));
     }
 }
