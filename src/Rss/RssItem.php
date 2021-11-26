@@ -13,6 +13,7 @@ class RssItem implements RssTag
 {
     private string $enclosure;
     private string $title;
+    private string $content;
     private string $description;
     private Date $pubDate;
     private string $author;
@@ -28,6 +29,7 @@ class RssItem implements RssTag
         string $enclosure,
         string $title,
         string $description,
+        string $content,
         Date $pubDate,
         string $author,
         string $link,
@@ -36,6 +38,7 @@ class RssItem implements RssTag
         $this->enclosure = $enclosure;
         $this->title = $title;
         $this->description = $description;
+        $this->content = $content;
         $this->pubDate = $pubDate;
         $this->author = $author;
         $this->link = $link;
@@ -49,6 +52,7 @@ class RssItem implements RssTag
           <enclosure url="{$this->enclosure}" type="image/jpeg"/>
           <title>{$this->title}</title>
           <description>{$this->description}</description>
+          <content><![CDATA[{$this->content}]]></content>
           <pubDate>{$this->pubDate->format('Y-m-d H:i:s')}</pubDate>
           <author>{$this->author}</author>
           <link>{$this->link}</link>

@@ -18,6 +18,7 @@ class RssItemTest extends TestCase
             enclosure: 'https://my-webiste/my-article/image.jpg',
             title: 'Foo Bar',
             description: 'Foo Bar Description',
+            content: 'Foo Bar Content',
             pubDate: new DateTimeImmutable('2021-11-26 15:20:25 UTC'),
             author: 'Arthur Dent',
             link: 'https://my-webiste/my-article.html',
@@ -30,6 +31,7 @@ class RssItemTest extends TestCase
               <enclosure url="https://my-webiste/my-article/image.jpg" type="image/jpeg"/>
               <title>Foo Bar</title>
               <description>Foo Bar Description</description>
+              <content><![CDATA[Foo Bar Content]]></content>
               <pubDate>2021-11-26 15:20:25</pubDate>
               <author>Arthur Dent</author>
               <link>https://my-webiste/my-article.html</link>

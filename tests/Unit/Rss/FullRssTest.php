@@ -25,6 +25,7 @@ class FullRssTest extends TestCase
                         enclosure: 'https://my-webiste/my-article/image.jpg',
                         title: 'Foo Bar',
                         description: 'Foo Bar Description',
+                        content: 'Foo Bar Content',
                         pubDate: new DateTimeImmutable('2021-11-26 15:20:25 UTC'),
                         author: 'Arthur Dent',
                         link: 'https://my-webiste/my-article.html',
@@ -34,6 +35,7 @@ class FullRssTest extends TestCase
                         enclosure: 'https://my-webiste/my-second-article/image.jpg',
                         title: 'Second Article',
                         description: 'Second Article Description',
+                        content: 'Second Article Content',
                         pubDate: new DateTimeImmutable('2021-11-26 15:30:50 UTC'),
                         author: 'Arthur Dent',
                         link: 'https://my-webiste/my-second-article.html',
@@ -54,21 +56,23 @@ class FullRssTest extends TestCase
                         <enclosure url="https://my-webiste/my-article/image.jpg" type="image/jpeg"/>
                         <title>Foo Bar</title>
                         <description>Foo Bar Description</description>
+                        <content><![CDATA[Foo Bar Content]]></content>
                         <pubDate>2021-11-26 15:20:25</pubDate>
                         <author>Arthur Dent</author>
                         <link>https://my-webiste/my-article.html</link>
-                        <category>Foo</category>
-                        <category>Bar</category>
+                        <category><![CDATA[Foo]]></category>
+                        <category><![CDATA[Bar]]></category>
                     </item>
                     <item>
                         <enclosure url="https://my-webiste/my-second-article/image.jpg" type="image/jpeg"/>
                         <title>Second Article</title>
                         <description>Second Article Description</description>
+                        <content><![CDATA[Second Article Content]]></content>
                         <pubDate>2021-11-26 15:30:50</pubDate>
                         <author>Arthur Dent</author>
                         <link>https://my-webiste/my-second-article.html</link>
-                        <category>Biz</category>
-                        <category>Baz</category>
+                        <category><![CDATA[Biz]]></category>
+                        <category><![CDATA[Baz]]></category>
                     </item>
                 </channel>
             </rss>
