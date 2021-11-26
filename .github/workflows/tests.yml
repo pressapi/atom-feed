@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Check file size
+        run: wget -O - https://gist.githubusercontent.com/thiagocordeiro/535feba34546cd4db8c0622a7e74f5bf/raw | bash
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -39,3 +42,7 @@ jobs:
 
       - name: Mutation tests
         run: composer mutation
+
+      - name: Mutation Report
+        run: cat .infection.log
+        if: ${{ always() }}

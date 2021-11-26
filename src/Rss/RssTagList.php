@@ -22,6 +22,6 @@ class RssTagList implements RssTag
 
     public function __toString(): string
     {
-        return trim(join("\n", $this->items));
+        return join("\n", $this->items);
     }
 }
