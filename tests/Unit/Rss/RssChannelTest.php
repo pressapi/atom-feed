@@ -7,7 +7,7 @@ namespace Test\PressApi\Feed\Unit\Rss;
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
 use PressApi\Feed\Rss\RssChannel;
-use PressApi\Feed\Rss\RssChannelItemList;
+use PressApi\Feed\Rss\RssTagList;
 
 class RssChannelTest extends TestCase
 {
@@ -27,7 +27,7 @@ class RssChannelTest extends TestCase
 
     public function testRenderChannelTag(): void
     {
-        $items = $this->createMock(RssChannelItemList::class);
+        $items = $this->createMock(RssTagList::class);
         $items->method('__toString')->willReturn('<item/>');
 
         $channel = new RssChannel(

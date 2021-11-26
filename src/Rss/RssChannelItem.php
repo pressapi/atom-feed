@@ -16,6 +16,12 @@ class RssChannelItem implements RssTag
     private DateTimeImmutable $pubDate;
     private string $author;
 
+    /** @var RssTagList<RssChannelItemCategory> */
+    private RssTagList $categories;
+
+    /**
+     * @param RssTagList<RssChannelItemCategory> ...$categories
+     */
     public function __construct(
         string $title,
         string $link,
@@ -24,8 +30,8 @@ class RssChannelItem implements RssTag
         string $guid,
         DateTimeImmutable $pubDate,
         string $author,
+        RssTagList $categories,
     ) {
-
         $this->title = $title;
         $this->link = $link;
         $this->description = $description;
@@ -33,19 +39,21 @@ class RssChannelItem implements RssTag
         $this->guid = $guid;
         $this->pubDate = $pubDate;
         $this->author = $author;
+        $this->categories = $categories;
     }
 
     public function __toString(): string
     {
         return <<<XML
         <item>
-          <title>{$this->title}</title>
+          <title><![CDATA[{$this->title}]]></title>
           <link>{$this->link}</link>
-          <description>{$this->description}</description>
-          <content:encoded>{$this->content}</content:encoded>
+          <description><![CDATA[{$this->description}]]></description>
+          <content:encoded><![CDATA[{$this->content}]]></content:encoded>
           <guid>{$this->guid}</guid>
           <pubDate>{$this->pubDate->format('r')}</pubDate>
           <author>{$this->author}</author>
+          {$this->categories}
         </item>
         XML;
     }
