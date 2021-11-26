@@ -20,7 +20,7 @@ class RssChannelItem implements RssTag
     private RssTagList $categories;
 
     /**
-     * @param RssTagList<RssChannelItemCategory> ...$categories
+     * @param RssTagList<RssChannelItemCategory> $categories
      */
     public function __construct(
         string $title,
