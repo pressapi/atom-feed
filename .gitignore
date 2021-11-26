@@ -1,0 +1,5 @@
+.phpunit.result.cache
+.infection.log
+.DS_Store
+.idea/
+vendor/
