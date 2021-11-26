@@ -4,12 +4,18 @@ declare(strict_types=1);
 
 namespace PressApi\Feed\Rss;
 
-class RssChannelItemList implements RssTag
+/**
+ * @template T of RssTag
+ */
+class RssTagList implements RssTag
 {
-    /** @var array<RssChannelItem> */
+    /** @var array<T> */
     private array $items;
 
-    public function __construct(RssChannelItem ...$items)
+    /**
+     * @param array<T> $items
+     */
+    public function __construct(array $items)
     {
         $this->items = $items;
     }

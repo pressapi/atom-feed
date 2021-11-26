@@ -32,7 +32,7 @@ XML;
 
         $rss = new Rss(xmlns: new Xmlns(), channel: $channel);
 
-        $this->assertEquals(self::DEFAULT_XML, "{$rss}");
+        $this->assertXmlStringEqualsXmlString(self::DEFAULT_XML, "{$rss}");
     }
 
     public function testRenderRssTagWithCustomizedValues(): void

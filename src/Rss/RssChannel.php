@@ -16,8 +16,13 @@ class RssChannel implements RssTag
     private DateTimeImmutable $pubDate;
     private DateTimeImmutable $lastBuildDate;
     private int $ttl;
-    private RssChannelItemList $items;
 
+    /** @var RssTagList<RssChannelItem> */
+    private RssTagList $items;
+
+    /**
+     * @param RssTagList<RssChannelItem> $items
+     */
     public function __construct(
         string $title,
         string $link,
@@ -27,7 +32,7 @@ class RssChannel implements RssTag
         DateTimeImmutable $pubDate,
         DateTimeImmutable $lastBuildDate,
         int $ttl,
-        RssChannelItemList $items,
+        RssTagList $items,
     ) {
         $this->title = $title;
         $this->link = $link;
@@ -52,7 +57,7 @@ class RssChannel implements RssTag
           <pubDate>{$this->pubDate->format('r')}</pubDate>
           <lastBuildDate>{$this->lastBuildDate->format('r')}</lastBuildDate>
           <ttl>{$this->ttl}</ttl>
-          {$this->items->__toString()}
+          {$this->items}
         </channel>
         XML;
     }

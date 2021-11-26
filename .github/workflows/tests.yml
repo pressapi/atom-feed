@@ -1,18 +1,25 @@
-name: PHP Composer
+name: Package Test
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
+      - name: Check file size
+        run: wget -O - https://gist.githubusercontent.com/thiagocordeiro/535feba34546cd4db8c0622a7e74f5bf/raw | bash
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          ini-values: zend.assertions=1, assert.active=1, assert.bail=0, assert.exception=1, assert.warning=1
+          coverage: pcov
 
       - name: Validate composer.json and composer.lock
         run: composer validate
@@ -30,8 +37,12 @@ jobs:
         if: steps.composer-cache.outputs.cache-hit != 'true'
         run: composer install --prefer-dist --no-progress --no-suggest
 
-      - name: Run test suite
+      - name: Tests
         run: composer tests
 
-      - name: Mutation Tests
+      - name: Mutation tests
         run: composer mutation
+
+      - name: Mutation Report
+        run: cat .infection.log
+        if: ${{ always() }}
