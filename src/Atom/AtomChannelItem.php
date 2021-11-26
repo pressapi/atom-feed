@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PressApi\Feed\Atom;
 
 use DateTimeImmutable;
+use PressApi\Feed\RssCategory;
 use PressApi\Feed\RssTag;
 use PressApi\Feed\RssTagList;
 
@@ -18,11 +19,11 @@ class AtomChannelItem implements RssTag
     private DateTimeImmutable $pubDate;
     private string $author;
 
-    /** @var RssTagList<AtomChannelItemCategory> */
+    /** @var RssTagList<RssCategory> */
     private RssTagList $categories;
 
     /**
-     * @param RssTagList<AtomChannelItemCategory> $categories
+     * @param RssTagList<RssCategory> $categories
      */
     public function __construct(
         string $title,

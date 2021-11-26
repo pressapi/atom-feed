@@ -2,11 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PressApi\Feed\Atom;
+namespace PressApi\Feed;
 
-use PressApi\Feed\RssTag;
-
-class AtomChannelItemCategory implements RssTag
+class RssCategory implements RssTag
 {
     private string $name;
 

@@ -9,8 +9,8 @@ use PHPUnit\Framework\TestCase;
 use PressApi\Feed\Atom\Atom;
 use PressApi\Feed\Atom\AtomChannel;
 use PressApi\Feed\Atom\AtomChannelItem;
-use PressApi\Feed\Atom\AtomChannelItemCategory;
 use PressApi\Feed\Atom\AtomXmlns;
+use PressApi\Feed\RssCategory;
 use PressApi\Feed\RssTagList;
 
 class AtomFullRssTest extends TestCase
@@ -76,8 +76,8 @@ XML;
                         pubDate: new DateTimeImmutable('2021-11-26 10:15:16 UTC'),
                         author: 'Arthur Dent',
                         categories: new RssTagList([
-                            new AtomChannelItemCategory('Foo'),
-                            new AtomChannelItemCategory('Bar'),
+                            new RssCategory('Foo'),
+                            new RssCategory('Bar'),
                         ]),
                     ),
                     new AtomChannelItem(
@@ -89,8 +89,8 @@ XML;
                         pubDate: new DateTimeImmutable('2021-11-26 10:15:16 UTC'),
                         author: 'John Travolta',
                         categories: new RssTagList([
-                            new AtomChannelItemCategory('Biz'),
-                            new AtomChannelItemCategory('Baz'),
+                            new RssCategory('Biz'),
+                            new RssCategory('Baz'),
                         ]),
                     ),
                 ]),

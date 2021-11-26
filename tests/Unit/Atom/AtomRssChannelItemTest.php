@@ -7,7 +7,7 @@ namespace Test\PressApi\Feed\Unit\Atom;
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
 use PressApi\Feed\Atom\AtomChannelItem;
-use PressApi\Feed\Atom\AtomChannelItemCategory;
+use PressApi\Feed\RssCategory;
 use PressApi\Feed\RssTagList;
 
 class AtomRssChannelItemTest extends TestCase
@@ -36,7 +36,7 @@ class AtomRssChannelItemTest extends TestCase
             pubDate: new DateTimeImmutable('2021-11-26 10:15:16 UTC'),
             author: 'Arthur Dent',
             categories: new RssTagList([
-                new AtomChannelItemCategory('Foo Bar'),
+                new RssCategory('Foo Bar'),
             ]),
         );
 

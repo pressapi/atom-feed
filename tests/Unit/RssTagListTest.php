@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Test\PressApi\Feed\Unit;
 
 use PHPUnit\Framework\TestCase;
-use PressApi\Feed\Atom\AtomChannelItemCategory;
+use PressApi\Feed\RssCategory;
 use PressApi\Feed\RssTagList;
 
 class RssTagListTest extends TestCase
@@ -17,8 +17,8 @@ class RssTagListTest extends TestCase
 
     public function testRenderChannelItemTag(): void
     {
-        $item1 = new AtomChannelItemCategory(name: 'Foo Bar');
-        $item2 = new AtomChannelItemCategory(name: 'Biz Baz');
+        $item1 = new RssCategory(name: 'Foo Bar');
+        $item2 = new RssCategory(name: 'Biz Baz');
 
         $items = new RssTagList([$item1, $item2]);
 
