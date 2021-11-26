@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PressApi\Feed\Rss;
+namespace PressApi\Feed\Atom;
 
-class Xmlns
+class AtomXmlns
 {
     private const DEFAULT_CONTENT = 'http://purl.org/rss/1.0/modules/content/';
     private const DEFAULT_ATOM = 'http://www.w3.org/2005/Atom';

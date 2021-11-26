@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PressApi\Feed\Rss;
+namespace PressApi\Feed;
 
 /**
  * @template T of RssTag

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Test\PressApi\Feed\Unit\Rss;
+namespace Test\PressApi\Feed\Unit\Atom;
 
 use PHPUnit\Framework\TestCase;
-use PressApi\Feed\Rss\RssChannelItemCategory;
+use PressApi\Feed\Atom\AtomChannelItemCategory;
 
-class RssChannelItemCategoryTest extends TestCase
+class AtomRssChannelItemCategoryTest extends TestCase
 {
     private const CATEGORY_XML = <<<XML
     <category><![CDATA[Foo Bar]]></category>
@@ -17,7 +17,7 @@ class RssChannelItemCategoryTest extends TestCase
     {
         $name = 'Foo Bar';
 
-        $category = new RssChannelItemCategory($name);
+        $category = new AtomChannelItemCategory($name);
 
         $this->assertEquals(self::CATEGORY_XML, "$category");
     }

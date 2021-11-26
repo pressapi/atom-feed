@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Test\PressApi\Feed\Unit\Rss;
+namespace Test\PressApi\Feed\Unit\Atom;
 
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
-use PressApi\Feed\Rss\RssChannelItem;
-use PressApi\Feed\Rss\RssChannelItemCategory;
-use PressApi\Feed\Rss\RssTagList;
+use PressApi\Feed\Atom\AtomChannelItem;
+use PressApi\Feed\Atom\AtomChannelItemCategory;
+use PressApi\Feed\RssTagList;
 
-class RssChannelItemTest extends TestCase
+class AtomRssChannelItemTest extends TestCase
 {
     private const ITEM_XML = <<<XML
     <item>
@@ -27,7 +27,7 @@ class RssChannelItemTest extends TestCase
 
     public function testRenderChannelItemTag(): void
     {
-        $item = new RssChannelItem(
+        $item = new AtomChannelItem(
             title: 'Foo Bar',
             link: 'http://my-website/my-channel/my-article.html',
             description: 'Foo Bar Article',
@@ -36,7 +36,7 @@ class RssChannelItemTest extends TestCase
             pubDate: new DateTimeImmutable('2021-11-26 10:15:16 UTC'),
             author: 'Arthur Dent',
             categories: new RssTagList([
-                new RssChannelItemCategory('Foo Bar'),
+                new AtomChannelItemCategory('Foo Bar'),
             ]),
         );
 

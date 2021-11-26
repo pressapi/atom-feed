@@ -4,44 +4,24 @@ declare(strict_types=1);
 
 namespace PressApi\Feed\Rss;
 
-use DateTimeImmutable;
+use PressApi\Feed\RssTag;
+use PressApi\Feed\RssTagList;
 
 class RssChannel implements RssTag
 {
     private string $title;
     private string $link;
-    private string $description;
-    private string $language;
-    private string $copyright;
-    private DateTimeImmutable $pubDate;
-    private DateTimeImmutable $lastBuildDate;
-    private int $ttl;
 
-    /** @var RssTagList<RssChannelItem> */
+    /** @var RssTagList<RssItem> */
     private RssTagList $items;
 
     /**
-     * @param RssTagList<RssChannelItem> $items
+     * @param RssTagList<RssItem> $items
      */
-    public function __construct(
-        string $title,
-        string $link,
-        string $description,
-        string $language,
-        string $copyright,
-        DateTimeImmutable $pubDate,
-        DateTimeImmutable $lastBuildDate,
-        int $ttl,
-        RssTagList $items,
-    ) {
+    public function __construct(string $title, string $link, RssTagList $items)
+    {
         $this->title = $title;
         $this->link = $link;
-        $this->description = $description;
-        $this->language = $language;
-        $this->copyright = $copyright;
-        $this->pubDate = $pubDate;
-        $this->lastBuildDate = $lastBuildDate;
-        $this->ttl = $ttl;
         $this->items = $items;
     }
 
@@ -51,12 +31,6 @@ class RssChannel implements RssTag
         <channel>
           <title>{$this->title}</title>
           <link>{$this->link}</link>
-          <description>{$this->description}</description>
-          <language>{$this->language}</language>
-          <copyright>{$this->copyright}</copyright>
-          <pubDate>{$this->pubDate->format('r')}</pubDate>
-          <lastBuildDate>{$this->lastBuildDate->format('r')}</lastBuildDate>
-          <ttl>{$this->ttl}</ttl>
           {$this->items}
         </channel>
         XML;
