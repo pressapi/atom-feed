@@ -8,7 +8,7 @@ use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
 use PressApi\Feed\Atom\Atom;
 use PressApi\Feed\Atom\AtomChannel;
-use PressApi\Feed\Atom\AtomChannelItem;
+use PressApi\Feed\Atom\AtomItem;
 use PressApi\Feed\Atom\AtomXmlns;
 use PressApi\Feed\RssCategory;
 use PressApi\Feed\RssTagList;
@@ -31,7 +31,7 @@ class AtomFullRssTest extends TestCase
       <title><![CDATA[Item 1 Title]]></title>
       <link>http://my-website/my-channel/item-1.html</link>
       <description><![CDATA[Item 1 Description]]></description>
-      <content:encoded><![CDATA[Item 1 Content]]></content:encoded>
+      <media:thumbnail xmlns:media="https://search.yahoo.com/mrss/" url="http://my-website/my-channel/image-1.html"/>
       <guid>item-1.html</guid>
       <pubDate>Fri, 26 Nov 2021 10:15:16 +0000</pubDate>
       <author>Arthur Dent</author>
@@ -42,7 +42,7 @@ class AtomFullRssTest extends TestCase
       <title><![CDATA[Item 2 Title]]></title>
       <link>http://my-website/my-channel/item-2.html</link>
       <description><![CDATA[Item 2 Description]]></description>
-      <content:encoded><![CDATA[Item 2 Content]]></content:encoded>
+      <media:thumbnail xmlns:media="https://search.yahoo.com/mrss/" url="http://my-website/my-channel/image-2.html"/>
       <guid>item-2.html</guid>
       <pubDate>Fri, 26 Nov 2021 10:15:16 +0000</pubDate>
       <author>John Travolta</author>
@@ -67,11 +67,11 @@ XML;
                 lastBuildDate: new DateTimeImmutable('2021-11-26 10:20:30 UTC'),
                 ttl: 60,
                 items: new RssTagList([
-                    new AtomChannelItem(
+                    new AtomItem(
                         title: 'Item 1 Title',
                         link: 'http://my-website/my-channel/item-1.html',
                         description: 'Item 1 Description',
-                        content: 'Item 1 Content',
+                        image: 'http://my-website/my-channel/image-1.html',
                         guid: 'item-1.html',
                         pubDate: new DateTimeImmutable('2021-11-26 10:15:16 UTC'),
                         author: 'Arthur Dent',
@@ -80,11 +80,11 @@ XML;
                             new RssCategory('Bar'),
                         ]),
                     ),
-                    new AtomChannelItem(
+                    new AtomItem(
                         title: 'Item 2 Title',
                         link: 'http://my-website/my-channel/item-2.html',
                         description: 'Item 2 Description',
-                        content: 'Item 2 Content',
+                        image: 'http://my-website/my-channel/image-2.html',
                         guid: 'item-2.html',
                         pubDate: new DateTimeImmutable('2021-11-26 10:15:16 UTC'),
                         author: 'John Travolta',

@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 use PressApi\Feed\Atom\AtomChannel;
 use PressApi\Feed\RssTagList;
 
-class AtomRssChannelTest extends TestCase
+class AtomChannelTest extends TestCase
 {
     private const CHANNEL_XML = <<<XML
     <channel>

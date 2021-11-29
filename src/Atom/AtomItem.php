@@ -9,12 +9,12 @@ use PressApi\Feed\RssCategory;
 use PressApi\Feed\RssTag;
 use PressApi\Feed\RssTagList;
 
-class AtomChannelItem implements RssTag
+class AtomItem implements RssTag
 {
     private string $title;
     private string $link;
     private string $description;
-    private string $content;
+    private string $image;
     private string $guid;
     private DateTimeImmutable $pubDate;
     private string $author;
@@ -29,7 +29,7 @@ class AtomChannelItem implements RssTag
         string $title,
         string $link,
         string $description,
-        string $content,
+        string $image,
         string $guid,
         DateTimeImmutable $pubDate,
         string $author,
@@ -38,7 +38,7 @@ class AtomChannelItem implements RssTag
         $this->title = $title;
         $this->link = $link;
         $this->description = $description;
-        $this->content = $content;
+        $this->image = $image;
         $this->guid = $guid;
         $this->pubDate = $pubDate;
         $this->author = $author;
@@ -52,7 +52,7 @@ class AtomChannelItem implements RssTag
           <title><![CDATA[{$this->title}]]></title>
           <link>{$this->link}</link>
           <description><![CDATA[{$this->description}]]></description>
-          <content:encoded><![CDATA[{$this->content}]]></content:encoded>
+          <media:thumbnail xmlns:media="https://search.yahoo.com/mrss/" url="{$this->image}"/>
           <guid>{$this->guid}</guid>
           <pubDate>{$this->pubDate->format('r')}</pubDate>
           <author>{$this->author}</author>

@@ -19,11 +19,11 @@ class AtomChannel implements RssTag
     private DateTimeImmutable $lastBuildDate;
     private int $ttl;
 
-    /** @var RssTagList<AtomChannelItem> */
+    /** @var RssTagList<AtomItem> */
     private RssTagList $items;
 
     /**
-     * @param RssTagList<AtomChannelItem> $items
+     * @param RssTagList<AtomItem> $items
      */
     public function __construct(
         string $title,

@@ -9,7 +9,7 @@ use PressApi\Feed\Atom\Atom;
 use PressApi\Feed\Atom\AtomChannel;
 use PressApi\Feed\Atom\AtomXmlns;
 
-class AtomRssTest extends TestCase
+class AtomTest extends TestCase
 {
     private const DEFAULT_XML = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
