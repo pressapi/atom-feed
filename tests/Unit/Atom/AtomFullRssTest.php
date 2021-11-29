@@ -30,8 +30,9 @@ class AtomFullRssTest extends TestCase
     <item>
       <title><![CDATA[Item 1 Title]]></title>
       <link>http://my-website/my-channel/item-1.html</link>
-      <description><![CDATA[Item 1 Description]]></description>
-      <media:thumbnail xmlns:media="https://search.yahoo.com/mrss/" url="http://my-website/my-channel/image-1.html"/>
+      <content:encoded xmlns:content="https://purl.org/rss/1.0/modules/content/">
+        <![CDATA[<p><img src="http://my-website/my-channel/image-1.jpg"/></p>Item 1 Description]]>
+      </content:encoded>
       <guid>item-1.html</guid>
       <pubDate>Fri, 26 Nov 2021 10:15:16 +0000</pubDate>
       <author>Arthur Dent</author>
@@ -41,8 +42,9 @@ class AtomFullRssTest extends TestCase
     <item>
       <title><![CDATA[Item 2 Title]]></title>
       <link>http://my-website/my-channel/item-2.html</link>
-      <description><![CDATA[Item 2 Description]]></description>
-      <media:thumbnail xmlns:media="https://search.yahoo.com/mrss/" url="http://my-website/my-channel/image-2.html"/>
+      <content:encoded xmlns:content="https://purl.org/rss/1.0/modules/content/">
+        <![CDATA[<p><img src="http://my-website/my-channel/image-2.jpg"/></p>Item 2 Description]]>
+      </content:encoded>
       <guid>item-2.html</guid>
       <pubDate>Fri, 26 Nov 2021 10:15:16 +0000</pubDate>
       <author>John Travolta</author>
@@ -70,8 +72,8 @@ XML;
                     new AtomItem(
                         title: 'Item 1 Title',
                         link: 'http://my-website/my-channel/item-1.html',
-                        description: 'Item 1 Description',
-                        image: 'http://my-website/my-channel/image-1.html',
+                        content: 'Item 1 Description',
+                        image: 'http://my-website/my-channel/image-1.jpg',
                         guid: 'item-1.html',
                         pubDate: new DateTimeImmutable('2021-11-26 10:15:16 UTC'),
                         author: 'Arthur Dent',
@@ -83,8 +85,8 @@ XML;
                     new AtomItem(
                         title: 'Item 2 Title',
                         link: 'http://my-website/my-channel/item-2.html',
-                        description: 'Item 2 Description',
-                        image: 'http://my-website/my-channel/image-2.html',
+                        content: 'Item 2 Description',
+                        image: 'http://my-website/my-channel/image-2.jpg',
                         guid: 'item-2.html',
                         pubDate: new DateTimeImmutable('2021-11-26 10:15:16 UTC'),
                         author: 'John Travolta',

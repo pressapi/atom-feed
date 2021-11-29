@@ -13,7 +13,7 @@ class AtomItem implements RssTag
 {
     private string $title;
     private string $link;
-    private string $description;
+    private string $content;
     private string $image;
     private string $guid;
     private DateTimeImmutable $pubDate;
@@ -28,7 +28,7 @@ class AtomItem implements RssTag
     public function __construct(
         string $title,
         string $link,
-        string $description,
+        string $content,
         string $image,
         string $guid,
         DateTimeImmutable $pubDate,
@@ -37,7 +37,7 @@ class AtomItem implements RssTag
     ) {
         $this->title = $title;
         $this->link = $link;
-        $this->description = $description;
+        $this->content = $content;
         $this->image = $image;
         $this->guid = $guid;
         $this->pubDate = $pubDate;
@@ -51,8 +51,9 @@ class AtomItem implements RssTag
         <item>
           <title><![CDATA[{$this->title}]]></title>
           <link>{$this->link}</link>
-          <description><![CDATA[{$this->description}]]></description>
-          <media:thumbnail xmlns:media="https://search.yahoo.com/mrss/" url="{$this->image}"/>
+          <content:encoded xmlns:content="https://purl.org/rss/1.0/modules/content/">
+            <![CDATA[<p><img src="{$this->image}"/></p>{$this->content}]]>
+          </content:encoded>
           <guid>{$this->guid}</guid>
           <pubDate>{$this->pubDate->format('r')}</pubDate>
           <author>{$this->author}</author>
